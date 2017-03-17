@@ -77,6 +77,11 @@ for opt in "${@}"; do
   esac
 done
 
+if [[ "$prefix" != /* ]]
+then
+    prefix=$(pwd)"/"${prefix}
+fi
+
 bin="${bin//%prefix%/${prefix}}"
 base="${base//%prefix%/${prefix}}"
 bazelrc="${bazelrc//%prefix%/${prefix}}"
